@@ -1,6 +1,5 @@
-# cocoapods-specs
-Repository of Cocoapod specs maintained by CruGlobal for CruGlobal apps
 # CruGlobal CococaPods Specs
+Repository of Cocoapod specs maintained by CruGlobal for CruGlobal apps
 
 ### Install CocoaPods and add CruGlobal repo
 ```shell
