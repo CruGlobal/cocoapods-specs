@@ -15,5 +15,5 @@ source 'https://github.com/CruGlobal/cocoapods-specs.git'
 
 platform :ios, '6.0'
 
-pod 'GTViewController', '~> 3.1'
+pod 'GTViewController', '~> 4.0'
 ```
