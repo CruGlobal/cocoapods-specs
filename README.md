@@ -36,6 +36,6 @@ Open the terminal and go to the root path of the repo for the pod, run the comma
 $ pod repo push cruglobal SPEC_NAME.podspec
 ```
 
-This will add the podspec file to this repo and make it so if the CruGlobal podspec is added to a podfile for a project, these pods will be available to be added to that podfile.
+This will add a versioned copy of the podspec file to this repo. Now the pod is available to be used in your Podfile. Make sure your Pod's README file has an example of what to add to a person's Podfile.
 
 For more information on private pod specs see [Private Pods](https://guides.cocoapods.org/making/private-cocoapods.html). This goes through the entire process to make a private spec but since this is already created for cruglobal, the main focus is on step 3.
