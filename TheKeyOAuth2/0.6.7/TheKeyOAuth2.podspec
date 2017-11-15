@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://thekey.me/"
   s.license      = { :type => 'Modified BSD', :file => 'LICENSE.txt' }
   s.author       = { "Brian Zoetewey" => "brian.zoetewey@ccci.org" }
-  s.source       = { :git => "git@github.com:GlobalTechnology/TheKeyOAuth2.git", :tag => "0.6.5" }
+  s.source       = { :git => "https://github.com/GlobalTechnology/TheKeyOAuth2", :tag => "0.6.7" }
   s.platform     = :ios, '7.0'
   s.source_files = 'TheKeyOAuth2/*.{h,m}'
   s.public_header_files = "TheKeyOAuth2/TheKeyOAuth2Client.h", "TheKeyOAuth2/TheKeyOAuth2LoginViewController.h"
