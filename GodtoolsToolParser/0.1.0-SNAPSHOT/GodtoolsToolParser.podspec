@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
     spec.source                   = {
                                       :git => "https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser.git",
                                       :branch => "develop"
-#                                      :commit => "v0.0.0-12-gd1053ea"
+#                                      :commit => "v0.0.0-14-g49d1450"
                                     }
     spec.authors                  = ''
     spec.license                  = 'MIT'
@@ -14,6 +14,7 @@ Pod::Spec.new do |spec|
 
     spec.static_framework         = true
     spec.vendored_frameworks      = "build/cocoapods/framework/GodToolsToolParser.framework"
+    spec.prepare_command          = "mkdir -p build/cocoapods/framework/GodToolsToolParser.framework"
     spec.libraries                = "c++"
     spec.module_name              = "#{spec.name}_umbrella"
 
