@@ -5,13 +5,12 @@ Pod::Spec.new do |spec|
 #    spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.source                   = {
                                       :git => "https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser.git",
-                                      :commit => "38946e97c92d7c4d33bfe6954e71d59e5f5b4475"
+                                      :commit => "60419dd1fd593861b575255941a75dbc99825dcf"
                                     }
     spec.authors                  = ''
     spec.license                  = 'MIT'
     spec.summary                  = 'GodTools tool parser'
 
-    spec.static_framework         = true
     spec.vendored_frameworks      = "build/cocoapods/framework/GodToolsToolParser.framework"
     spec.prepare_command          = "./gradlew generateDummyFramework"
     spec.libraries                = "c++"
@@ -22,13 +21,8 @@ Pod::Spec.new do |spec|
                 
 
     spec.pod_target_xcconfig = {
-        'KOTLIN_TARGET[sdk=iphonesimulator*]' => 'ios_x64',
-        'KOTLIN_TARGET[sdk=iphoneos*]' => 'ios_arm',
-        'KOTLIN_TARGET[sdk=watchsimulator*]' => 'watchos_x64',
-        'KOTLIN_TARGET[sdk=watchos*]' => 'watchos_arm',
-        'KOTLIN_TARGET[sdk=appletvsimulator*]' => 'tvos_x64',
-        'KOTLIN_TARGET[sdk=appletvos*]' => 'tvos_arm64',
-        'KOTLIN_TARGET[sdk=macosx*]' => 'macos_x64'
+        'KOTLIN_PROJECT_PATH' => ':',
+        'PRODUCT_MODULE_NAME' => 'GodtoolsToolParser',
     }
 
     spec.script_phases = [
@@ -37,16 +31,21 @@ Pod::Spec.new do |spec|
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT
+                if [ "YES" = "$COCOAPODS_SKIP_KOTLIN_BUILD" ]; then
+                  echo "Skipping Gradle build task invocation due to COCOAPODS_SKIP_KOTLIN_BUILD environment variable set to \"YES\""
+                  exit 0
+                fi
                 set -ev
                 REPO_ROOT="$PODS_TARGET_SRCROOT"
 if [[ $(echo $CONFIGURATION | tr '[:upper:]' '[:lower:]') = 'debug' ]]
 then
-    SANITIZED_CONFIGURATION=debug
+    SANITIZED_CONFIGURATION=Debug
 else
-    SANITIZED_CONFIGURATION=release
+    SANITIZED_CONFIGURATION=Release
 fi
-                "$REPO_ROOT/gradlew" -p "$REPO_ROOT" ::syncFramework \
-                    -Pkotlin.native.cocoapods.target=$KOTLIN_TARGET \
+                "$REPO_ROOT/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
+                    -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
+                    -Pkotlin.native.cocoapods.archs="$ARCHS" \
                     -Pkotlin.native.cocoapods.configuration=$SANITIZED_CONFIGURATION \
                     -Pkotlin.native.cocoapods.cflags="$OTHER_CFLAGS" \
                     -Pkotlin.native.cocoapods.paths.headers="$HEADER_SEARCH_PATHS" \
