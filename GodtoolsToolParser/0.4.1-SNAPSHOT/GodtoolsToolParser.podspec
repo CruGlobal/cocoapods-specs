@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
 #    spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.source                   = {
                                       :git => "https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser.git",
-                                      :commit => "4bca161a2822286be7d20e825abfdb5b2d1f47bd"
+                                      :commit => "d23ce90bde31217b8de8edad0d05741a14a31667"
                                     }
     spec.authors                  = ''
     spec.license                  = 'MIT'
@@ -46,10 +46,7 @@ fi
                 "$REPO_ROOT/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
-                    -Pkotlin.native.cocoapods.configuration=$SANITIZED_CONFIGURATION \
-                    -Pkotlin.native.cocoapods.cflags="$OTHER_CFLAGS" \
-                    -Pkotlin.native.cocoapods.paths.headers="$HEADER_SEARCH_PATHS" \
-                    -Pkotlin.native.cocoapods.paths.frameworks="$FRAMEWORK_SEARCH_PATHS"
+                    -Pkotlin.native.cocoapods.configuration=$SANITIZED_CONFIGURATION
             SCRIPT
         }
     ]
