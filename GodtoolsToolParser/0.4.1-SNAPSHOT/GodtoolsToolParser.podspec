@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
 #    spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.source                   = {
                                       :git => "https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser.git",
-                                      :commit => "7b56f29ba5a758b9673f828a53af8c8e999b9009"
+                                      :commit => "130a5ba443fc0538ded7bed9da7794aced38c3b6"
                                     }
     spec.authors                  = ''
     spec.license                  = 'MIT'
