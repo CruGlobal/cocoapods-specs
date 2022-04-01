@@ -2,29 +2,25 @@ Pod::Spec.new do |spec|
     spec.name                     = 'GodtoolsToolParser'
     spec.version                  = '0.5.1-SNAPSHOT'
     spec.homepage                 = 'https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser'
-#    spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
+#    spec.source                   = { :http=> ''}
     spec.source                   = {
                                       :git => "https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser.git",
-                                      :commit => "5c7f7229c3ebcd8f41c799ae8d3f09427836a682"
+                                      :commit => "1535daf759343c3b4403e01f07ca9db07ec9a478"
                                     }
     spec.authors                  = ''
     spec.license                  = 'MIT'
     spec.summary                  = 'GodTools tool parser'
-
-    spec.vendored_frameworks      = "build/cocoapods/framework/GodToolsToolParser.framework"
+    spec.vendored_frameworks      = 'build/cocoapods/framework/GodToolsToolParser.framework'
     spec.prepare_command          = "./gradlew generateDummyFramework"
-    spec.libraries                = "c++"
-    spec.module_name              = "#{spec.name}_umbrella"
-
+    spec.libraries                = 'c++'
     spec.ios.deployment_target = '11.0'
-
                 
-
+                
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':',
-        'PRODUCT_MODULE_NAME' => 'GodtoolsToolParser',
+        'PRODUCT_MODULE_NAME' => 'GodToolsToolParser',
     }
-
+                
     spec.script_phases = [
         {
             :name => 'Build GodtoolsToolParser',
@@ -46,9 +42,10 @@ fi
                 "$REPO_ROOT/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
-                    -Pkotlin.native.cocoapods.configuration=$SANITIZED_CONFIGURATION
+                    -Pkotlin.native.cocoapods.configuration="$SANITIZED_CONFIGURATION"
             SCRIPT
         }
     ]
+                
     spec.preserve_paths           = "**/*.*"
 end
