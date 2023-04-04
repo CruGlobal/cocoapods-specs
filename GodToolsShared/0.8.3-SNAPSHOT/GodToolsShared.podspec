@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
 #    spec.source                   = { :http=> ''}
     spec.source                   = {
                                       :git => "https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser.git",
-                                      :commit => "d4b42096595b92fe6c6a3bbbbec2468704ccc2fb"
+                                      :commit => "ad2a35b1efee10e737665e959126426813f43951"
                                     }
     spec.authors                  = ''
     spec.license                  = 'MIT'
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
                 
                 
     spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':',
+        'KOTLIN_PROJECT_PATH' => '',
         'PRODUCT_MODULE_NAME' => 'GodToolsToolParser',
     }
                 
