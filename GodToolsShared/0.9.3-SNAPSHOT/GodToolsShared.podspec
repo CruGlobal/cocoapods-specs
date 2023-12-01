@@ -5,14 +5,15 @@ Pod::Spec.new do |spec|
 #    spec.source                   = { :http=> ''}
     spec.source                   = {
                                       :git => "https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser.git",
-                                      :commit => "31c838ff93cfa15368eb9bb26bf9aaed0d481229"
+                                      :commit => "e60b69371c51d04ed4c0a36136b2ce160cb3f8f6"
                                     }
     spec.authors                  = ''
     spec.license                  = 'MIT'
     spec.summary                  = 'GodTools shared logic'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/GodToolsToolParser.framework'
+                
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '14.0'
+                
                 
                 
     spec.pod_target_xcconfig = {
@@ -41,4 +42,5 @@ Pod::Spec.new do |spec|
     ]
     spec.prepare_command = "./gradlew generateDummyFramework"
     spec.preserve_paths = "**/*.*"
+    spec.vendored_frameworks = "build/cocoapods/framework/GodToolsToolParser.framework"
 end
