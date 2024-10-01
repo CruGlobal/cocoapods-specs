@@ -40,8 +40,8 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '5.9.1'
   s.dependency 'PromiseKit', '8.1.1'
   
-  s.dependency 'LocalizationServices', '~> 0.1.0'
-  s.dependency 'RequestOperation', '~> 1.5.1'
+  s.dependency 'LocalizationServices', '~> 0.2.1'
+  s.dependency 'RequestOperation', '~> 1.6.2'
   s.dependency 'OktaAuthentication', '~> 1.4.3'
   s.dependency 'OAuth', '~> 1.2.2'
 end
