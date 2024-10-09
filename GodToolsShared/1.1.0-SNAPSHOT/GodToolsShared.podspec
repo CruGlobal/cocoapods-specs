@@ -5,16 +5,20 @@ Pod::Spec.new do |spec|
 #    spec.source                   = { :http=> ''}
     spec.source                   = {
                                       :git => "https://github.com/CruGlobal/kotlin-mpp-godtools-tool-parser.git",
-                                      :commit => "840092eff5f409bbb7b5f00ba34598cd9b880849"
+                                      :commit => "6dbfa3bc0f07931f6836e132fac64c2a1610f6fc"
                                     }
     spec.authors                  = ''
     spec.license                  = 'MIT'
     spec.summary                  = 'GodTools shared logic'
                 
     spec.libraries                = 'c++'
-    spec.ios.deployment_target = '14.0'
+    spec.ios.deployment_target    = '14.0'
                 
                 
+                
+    spec.xcconfig = {
+        'ENABLE_USER_SCRIPT_SANDBOXING' => 'NO',
+    }
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => '',
